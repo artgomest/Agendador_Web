@@ -13,11 +13,12 @@ from typing import Dict, Any, List, Optional
 from flask import Flask, request
 
 # Importações externas (só os módulos, sem inicializar nada ainda)
-import firebase_admin
 import google.auth
 import googlemaps
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
+import firebase_admin
+from firebase_admin import credentials, firestore
 
 # ==============================================================
 # CONSTANTES GERAIS
@@ -38,6 +39,8 @@ def get_firestore_client():
     """Inicializa o Firebase e retorna um cliente do Firestore (lazy loading)."""
     if not firebase_admin._apps:
         firebase_admin.initialize_app()
+
+        db = firestore.client()
     return firebase_admin.firestore.client()
 
 # ==============================================================
