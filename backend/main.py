@@ -39,10 +39,8 @@ def get_firestore_client():
     """Inicializa o Firebase e retorna um cliente do Firestore (lazy loading)."""
     if not firebase_admin._apps:
         firebase_admin.initialize_app()
-
-        db = firestore.client()
-    return firebase_admin.firestore.client()
-
+    return firestore.client()
+db = get_firestore_client()
 # ==============================================================
 # FUNÇÕES AUXILIARES (inalteradas)
 # ==============================================================
