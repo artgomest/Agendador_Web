@@ -1,0 +1,2 @@
+gcloud builds submit ./backend --region=southamerica-east1 --tag=southamerica-east1-docker.pkg.dev/lpc---rotas/rota-agil-repo/trabalhador-noturno:latestg
+gcloud run deploy trabalhador-noturno --image=southamerica-east1-docker.pkg.dev/lpc---rotas/rota-agil-repo/trabalhador-noturno:latest --region=southamerica-east1 --allow-unauthenticated --set-env-vars="GOOGLE_API_KEY=AIzaSyBWQyVqNNN0-omLveLE3z2cDhtZ7BPWZzQ"
